@@ -1,16 +1,16 @@
 def selection_sort(input_list):
-    
-    for idx in range(len(input_list)):
+    for i in range(len(input_list)):
+        # Assume the current index is the minimum
+        min_index = i
+        for j in range(i + 1, len(input_list)):
+            if input_list[min_index] > input_list[j]:
+                min_index = j
 
-        min_idx = idx
-        for j in range( idx +1, len(input_list)):
-            if input_list[min_idx] > input_list[j]:
-                min_idx = j
-# Swap the minimum value with the compared value
+        # Swap the minimum value with the current value
+        input_list[i], input_list[min_index] = input_list[min_index], input_list[i]
 
-        input_list[idx], input_list[min_idx] = input_list[min_idx], input_list[idx]
+# Feel free to use any list of numbers
+numbers = [5, 2, 4, 6, 1, 3]
+selection_sort(numbers)
+print(numbers)
 
-# add any list of number here 
-l = [5,2,4,6,1,3]
-selection_sort(l)
-print(l)
