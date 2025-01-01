@@ -1,6 +1,3 @@
-![image](https://github.com/user-attachments/assets/590c4650-cbe6-4e6a-9edd-90735cbe4acf)![sorting_visualization](https://github.com/user-attachments/assets/8c1e81bd-cd38-47b2-a899-cbde581da785)## Sorting Visualization 
-
-
 Sorting algorithms come in various forms, and understanding their functionality can be challenging without proper visualization.
 
 Pro Tip: Visualizations not only help in understanding how these algorithms work but also provide insights into their time complexities.
@@ -64,9 +61,9 @@ Total operations = 780
 ![bubble](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMTdkeXQ5emZyZDJrMG5lMTIxZ3A2cTRtNzZnMXZrMGZ1YnJhOTJpOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/hIDzLYByAJYN3Dg91r/giphy.gif)
 
 ### Selection Sort
-Total operations = 460
+Total operations = 816
 
-![selection](https://g.top4top.io/p_1743jlpcp2.gif)
+![selection](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExdWRvMzAxazZ5ZmdmdHA4a3dzYno3ZHpodG4zODQ3cTV0aTBlNHo0diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/qp8h6e0H9OT1w7nGUF/giphy.gif)
 
 ### Insertion Sort
 Total operations = 431
@@ -74,9 +71,9 @@ Total operations = 431
 ![Insertion](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnFrYzZuZWlrdDQ1d200dWhoamJydTBla2ZiOHVtMHBqNTBhZXk2NyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/8HP1qtOgIoto54pCd8/giphy.gif)
 
 ### Quick Sort
-Total operations = 131
+Total operations = 201
 
-![quick](https://i.top4top.io/p_1743rf4xy4.gif)
+![quick](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNm9uamliMWVrcmh3NDY0NnN5cHhvbWp3OHl0dHZpY25oZGRhNTk4eSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/UNHd00MHMzMSGZwJxh/giphy.gif)
 
 ### Merge Sort
 Total operations = 255
