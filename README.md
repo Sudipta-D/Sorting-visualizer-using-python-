@@ -1,48 +1,41 @@
-﻿# Welcome to Sorting-Algorithm Repository!
-
-
-**Sorting**  is a skill that every  **software engineer**  and  **developer**  needs some knowledge of. Not only to pass coding interviews but as a general understanding of programming itself. The different sorting algorithms are a perfect showcase of how algorithm design can have such a strong effect on program complexity, speed, and efficiency.
-
-
+# Sorting Algorithms using python 
+This repository serves as a practical guide to understanding and implementing sorting algorithms, offering visualizations and code examples for each method. Explore and enhance your grasp of algorithm design and performance optimization.
 # Selection Sort
-
-**Selection sort** is also quite simple but frequently outperforms bubble sort. If you are choosing between the two, it’s best to just default right to selection sort. With Selection sort, we divide our input list / array into two parts: the sublist of items already sorted and the sublist of items remaining to be sorted that make up the rest of the list. We first find the smallest element in the unsorted sublist and place it at the end of the sorted sublist. Thus, we are continuously grabbing the smallest unsorted element and placing it in sorted order in the sorted sublist. This process continues iteratively until the list is fully sorted.
-           ![enter image description here](https://a.top4top.io/p_1741bco6x1.gif)
+Selection Sort is a straightforward algorithm that often outperforms Bubble Sort in terms of efficiency. It divides the input array into two sublists: one containing sorted elements and the other containing unsorted elements. During each iteration, the smallest element from the unsorted sublist is selected and placed at the end of the sorted sublist. This process continues until the entire array is sorted.
+           ![enter image description here](https://www.lavivienpost.net/wp-content/uploads/2022/01/selection-600.gif)
        
 
->     to see the code open/run Selection_Sort.py
->     Python3 Selection_Sort.py
+>     to see the code open/run SelectionSort.py
+>     Python3 SelectionSort.py
 
 ##  Insertion Sort
+Insertion Sort is both faster and simpler than Bubble Sort and Selection Sort. It mimics the way people often sort playing cards. The algorithm iteratively removes one element from the unsorted list, finds its correct position in the sorted sublist, and inserts it. This process is repeated until all elements are sorted.
+![enter image description here](https://www.lavivienpost.net/wp-content/uploads/2022/01/insertion-600.gif)
 
-Insertion sort is both faster and well-arguably more simplistic than both bubble sort and selection sort. Funny enough, it’s how many people sort their cards when playing a card game! On each loop iteration, insertion sort removes one element from the array. It then finds the location where that element belongs within another  _sorted_  array and inserts it there. It repeats this process until no input elements remain.
-																![enter image description here](https://c.top4top.io/p_1741u2v4h1.gif)
-
-    > to see the code open/run Insertion_Sort.py
-    > Python3 Insertion_Sort.py
+    > to see the code open/run InsertionSort.py
+    > Python3 InsertionSort.py
 
 ##  Merge Sort
-Merge sort is a perfectly elegant example of a Divide and Conquer algorithm. It simple uses the 2 main steps of such an algorithm:
+Merge Sort is an elegant example of a Divide and Conquer algorithm. It works in two phases:
 
-(1) Continuously  _divide_ the unsorted list until you have  _N_  sublists, where each sublist has 1 element that is “unsorted” and  _N_ is the number of elements in the original array.
+1. Divide: Recursively divide the unsorted array into subarrays, each containing a single element.
 
-(2) Repeatedly  [merge](https://en.wikipedia.org/wiki/Merge_algorithm)  i.e  _conquer_ the sublists together 2 at a time to produce new sorted sublists until all elements have been fully merged into a single sorted array.
-![enter image description here](https://f.top4top.io/p_1741h1u631.gif)
+2. Conquer: Merge the subarrays in a sorted manner, combining them into progressively larger arrays until the original array is fully sorted.
+![enter image description here](https://www.lavivienpost.net/wp-content/uploads/2022/02/merge-sort-400.gif)
 
->     > to see the code open/run Merge_Sort.py
->     > Python3 Merge_Sort.py
+>     > to see the code open/run MergeSort.py
+>     > Python3 MergeSort.py
 
 ## Quick Sort
 
-Like  [Merge Sort](https://en.wikipedia.org/wiki/Merge_algorithm), **QuickSort** is a Divide and Conquer algorithm. It picks an element as pivot and partitions the given array around the picked pivot. There are many different versions of quickSort that pick pivot in different ways.
+Quick Sort is another Divide and Conquer algorithm that selects a pivot element and partitions the array around it. Elements smaller than the pivot are placed on one side, and elements larger are placed on the other. The process is repeated recursively for the subarrays. Various pivot selection strategies include:
 
-1.  Always pick first element as pivot.
-2.  Always pick last element as pivot (implemented below)
-3.  Pick a random element as pivot.
-4.  Pick median as pivot.
+1. Picking the first element.
+2. Picking the last element (used in the implementation below).
+3. Picking a random element.
+4. Picking the median.
 
-The key process in quickSort is partition(). Target of partitions is, given an array and an element x of array as pivot, put x at its correct position in sorted array and put all smaller elements (smaller than x) before x, and put all greater elements (greater than x) after x. All this should be done in linear time.
-![enter image description here](https://f.top4top.io/p_1741h1u631.gif)
->     > to see the code open/run Quick_Sort.py
->     > Python3 Quick_Sort.py
+![enter image description here](https://www.lavivienpost.net/wp-content/uploads/2022/02/quicksort-600-1.gif)
+>     > to see the code open/run QuickSort.py
+>     > Python3 QuickSort.py
 
