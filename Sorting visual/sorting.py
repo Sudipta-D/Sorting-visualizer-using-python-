@@ -2,209 +2,194 @@ import random
 import matplotlib.pyplot as plt
 import matplotlib.animation as anim
 
+# Install matplotlib using 'pip install matplotlib'
+# For Linux, if needed, run: sudo apt-get install --reinstall libxcb-xinerama0
 
-# install matplotlib using (pip install matplotlib)
-# if you are using linux run this 
-# sudo apt-get install --reinstall libxcb-xinerama0
+# Utility function to swap elements
+def swap(array, i, j):
+    array[i], array[j] = array[j], array[i]
 
+# Bubble Sort Algorithm
+def bubble_sort(array):
+    for i in range(len(array) - 1):
+        for j in range(len(array) - 1 - i):
+            if array[j] > array[j + 1]:
+                swap(array, j, j + 1)
+            yield array
 
-def swap(A, i, j):
-    a = A[j]
-    A[j] = A[i]
-    A[i] = a
-
-# this is buble sort algo 
-def sort_buble(arr):
-    if (len(arr) == 1):
-        return
-    for i in range(len(arr) - 1):
-        for j in range(len(arr) - 1 - i):
-            if (arr[j] > arr[j + 1]):
-                swap(arr, j, j + 1)
-            yield arr
-def insertion_sort(arr):
-    if(len(arr)==1):
-        return
-    for i in range(1,len(arr)):
+# Insertion Sort Algorithm
+def insertion_sort(array):
+    for i in range(1, len(array)):
         j = i
-        while(j>0 and arr[j-1]>arr[j]):
-            swap(arr,j,j-1)
-            j-=1
-            yield arr
+        while j > 0 and array[j - 1] > array[j]:
+            swap(array, j, j - 1)
+            j -= 1
+            yield array
 
-def quick_Sort(arr,p,q):
-    if(p>=q):
+# Quick Sort Algorithm
+def quick_sort(array, low, high):
+    if low >= high:
         return
-    piv = arr[q]
-    pivindx = p
-    for i in range(p,q):
-        if(arr[i]<piv):
-            swap(arr,i,pivindx)
-            pivindx+=1
-        yield arr
-    swap(arr,q,pivindx)
-    yield arr
+    pivot = array[high]
+    pivot_index = low
+    for i in range(low, high):
+        if array[i] < pivot:
+            swap(array, i, pivot_index)
+            pivot_index += 1
+        yield array
+    swap(array, high, pivot_index)
+    yield array
+    yield from quick_sort(array, low, pivot_index - 1)
+    yield from quick_sort(array, pivot_index + 1, high)
 
-    yield from quick_Sort(arr,p,pivindx-1)
-    yield from quick_Sort(arr,pivindx+1,q)
+# Selection Sort Algorithm
+def selection_sort(array):
+    for i in range(len(array) - 1):
+        min_index = i
+        for j in range(i + 1, len(array)):
+            if array[j] < array[min_index]:
+                min_index = j
+            yield array
+        if min_index != i:
+            swap(array, i, min_index)
+            yield array
 
-def selection_sort(arr):
-    for i in range(len(arr)-1):
-        min = i
-        for j in range(i+1,len(arr)):
-            if(arr[j]<arr[min]):
-                min=j
-            yield arr
-        if(min!=i):
-            swap(arr,i,min)
-            yield arr
-
-def merge_sort(arr,lb,ub):
-    if(ub<=lb):
+# Merge Sort Algorithm
+def merge_sort(array, low, high):
+    if low >= high:
         return
-    elif(lb<ub):
-        mid =(lb+ub)//2
-        yield from merge_sort(arr,lb,mid)
-        yield from merge_sort(arr,mid+1,ub)
-        yield from merge(arr,lb,mid,ub)
-        yield arr
+    mid = (low + high) // 2
+    yield from merge_sort(array, low, mid)
+    yield from merge_sort(array, mid + 1, high)
+    yield from merge(array, low, mid, high)
+    yield array
 
-def merge(arr,lb,mid,ub):
-    new = []
-    i = lb
-    j = mid+1
-    while(i<=mid and j<=ub):
-        if(arr[i]<arr[j]):
-            new.append(arr[i])
-            i+=1
-        else:
-            new.append(arr[j])
-            j+=1
-    if(i>mid):
-        while(j<=ub):
-            new.append(arr[j])
-            j+=1
-    else:
-        while(i<=mid):
-            new.append(arr[i])
-            i+=1
-    for i,val in enumerate(new):
-        arr[lb+i] = val
-        yield arr
-
-def heapify(arr,n,i):
-    largest = i
-    l = i*2+1
-    r = i*2+2
-    while(l<n and arr[l]>arr[largest]):
-        largest = l
-    while(r<n and arr[r]>arr[largest]):
-        largest = r
-    if(largest!=i):
-        swap(arr,i,largest)
-        yield arr
-        yield from heapify(arr,n,largest)
-
-def heap_sort(arr):
-    n = len(arr)
-    for i in range(n,-1,-1):
-        yield from heapify(arr,n,i)
-    for i in range(n-1,0,-1):
-        swap(arr,0,i)
-        yield  arr
-        yield from heapify(arr,i,0)
-
-def shell_sort(arr):
-    sublistcount = len(arr) // 2
-    while sublistcount > 0:
-      for start_position in range(sublistcount):
-        yield  from gap_InsertionSort(arr, start_position, sublistcount)
-      sublistcount = sublistcount // 2
-
-def gap_InsertionSort(nlist,start,gap):
-    for i in range(start+gap,len(nlist),gap):
-
-        current_value = nlist[i]
-        position = i
-
-        while position>=gap and nlist[position-gap]>current_value:
-            nlist[position]=nlist[position-gap]
-            position = position-gap
-            yield nlist
-
-        nlist[position]=current_value
-        yield nlist
-
-def count_sort(arr):
-    max_val = max(arr)
-    m = max_val + 1
-    count = [0] * m
-
-    for a in arr:
-        count[a] += 1
-        yield arr
-    i = 0
-    for a in range(m):
-        for c in range(count[a]):
-            arr[i] = a
+def merge(array, low, mid, high):
+    temp = []
+    i, j = low, mid + 1
+    while i <= mid and j <= high:
+        if array[i] < array[j]:
+            temp.append(array[i])
             i += 1
-            yield arr
-        yield  arr
+        else:
+            temp.append(array[j])
+            j += 1
+    temp.extend(array[i:mid + 1])
+    temp.extend(array[j:high + 1])
+    for i, val in enumerate(temp):
+        array[low + i] = val
+        yield array
 
+# Heap Sort Algorithm
+def heapify(array, n, i):
+    largest = i
+    left, right = 2 * i + 1, 2 * i + 2
+    if left < n and array[left] > array[largest]:
+        largest = left
+    if right < n and array[right] > array[largest]:
+        largest = right
+    if largest != i:
+        swap(array, i, largest)
+        yield array
+        yield from heapify(array, n, largest)
 
+def heap_sort(array):
+    n = len(array)
+    for i in range(n // 2 - 1, -1, -1):
+        yield from heapify(array, n, i)
+    for i in range(n - 1, 0, -1):
+        swap(array, 0, i)
+        yield array
+        yield from heapify(array, i, 0)
 
-n = int(input("Enter the number of elements:"))
-print("\n 1.Bubble \n 2.Insertion \n 3.Quick \n 4.Selection \n 5.Merge Sort \n 6.Heapify \n 7.Shell \n 8.Count sort \n")
-al = int(input("Choose algorithm: "))
+# Shell Sort Algorithm
+def shell_sort(array):
+    gap = len(array) // 2
+    while gap > 0:
+        for start in range(gap):
+            yield from gap_insertion_sort(array, start, gap)
+        gap //= 2
+
+def gap_insertion_sort(array, start, gap):
+    for i in range(start + gap, len(array), gap):
+        current_value = array[i]
+        pos = i
+        while pos >= gap and array[pos - gap] > current_value:
+            array[pos] = array[pos - gap]
+            pos -= gap
+            yield array
+        array[pos] = current_value
+        yield array
+
+# Counting Sort Algorithm
+def counting_sort(array):
+    max_val = max(array)
+    count = [0] * (max_val + 1)
+    for num in array:
+        count[num] += 1
+        yield array
+    index = 0
+    for i, freq in enumerate(count):
+        for _ in range(freq):
+            array[index] = i
+            index += 1
+            yield array
+
+# User Input
+n = int(input("Enter the number of elements: "))
+print("\nSorting Algorithms:")
+print("1. Bubble Sort\n2. Insertion Sort\n3. Quick Sort\n4. Selection Sort\n5. Merge Sort\n6. Heap Sort\n7. Shell Sort\n8. Counting Sort\n")
+choice = int(input("Choose an algorithm: "))
+
+# Generate Random Array
 array = [i + 1 for i in range(n)]
 random.shuffle(array)
 
-if(al==1):
+# Select Sorting Algorithm
+if choice == 1:
     title = "Bubble Sort"
-    algo = sort_buble(array)
-elif(al==2):
+    algorithm = bubble_sort(array)
+elif choice == 2:
     title = "Insertion Sort"
-    algo = insertion_sort(array)
-elif(al==3):
+    algorithm = insertion_sort(array)
+elif choice == 3:
     title = "Quick Sort"
-    algo = quick_Sort(array,0,n-1)
-elif(al==4):
-    title="Selection Sort"
-    algo = selection_sort(array)
-elif (al == 5):
+    algorithm = quick_sort(array, 0, n - 1)
+elif choice == 4:
+    title = "Selection Sort"
+    algorithm = selection_sort(array)
+elif choice == 5:
     title = "Merge Sort"
-    algo=merge_sort(array,0,n-1)
-elif (al == 6):
+    algorithm = merge_sort(array, 0, n - 1)
+elif choice == 6:
     title = "Heap Sort"
-    algo = heap_sort(array)
-elif (al == 7):
+    algorithm = heap_sort(array)
+elif choice == 7:
     title = "Shell Sort"
-    algo = shell_sort(array)
-elif (al == 8):
-    title = "Count Sort"
-    algo = count_sort(array)
+    algorithm = shell_sort(array)
+elif choice == 8:
+    title = "Counting Sort"
+    algorithm = counting_sort(array)
 else:
-    print("Please enter a number from list")
-# Initialize fig
+    print("Invalid choice. Exiting.")
+    exit()
+
+# Visualization Setup
 fig, ax = plt.subplots()
 ax.set_title(title)
-
-bar_rec = ax.bar(range(len(array)), array, align='edge')
-
+bar_rects = ax.bar(range(len(array)), array, align="edge")
 ax.set_xlim(0, n)
 ax.set_ylim(0, int(n * 1.1))
-
 text = ax.text(0.02, 0.95, "", transform=ax.transAxes)
+operations = [0]
 
-epochs = [0]
+# Update Function for Animation
+def update(array, rects, operations):
+    for rect, val in zip(rects, array):
+        rect.set_height(val)
+    operations[0] += 1
+    text.set_text(f"Operations: {operations[0]}")
 
-
-def update_plot(array, rec, epochs):
-    for rec, val in zip(rec, array):
-        rec.set_height(val)
-    epochs[0]+= 1
-    text.set_text("No.of operations :{}".format(epochs[0]))
-
-
-anima = anim.FuncAnimation(fig, func=update_plot, fargs=(bar_rec, epochs), frames=algo, interval=1, repeat=False)
+# Animate and Show Plot
+animation = anim.FuncAnimation(fig, update, fargs=(bar_rects, operations), frames=algorithm, interval=1, repeat=False)
 plt.show()
