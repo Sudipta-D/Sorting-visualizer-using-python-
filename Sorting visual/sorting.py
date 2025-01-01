@@ -198,7 +198,7 @@ animation = anim.FuncAnimation(
     frames=algorithm,
     interval=1,
     repeat=False,
-    save_count=n * n  # Estimate the maximum number of frames
+    cache_frame_data=False
 )
 animation.save("sorting_visualization.gif", writer="pillow")
 plt.show()
