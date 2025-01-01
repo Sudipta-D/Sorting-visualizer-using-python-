@@ -22,5 +22,5 @@ def merge(left_half, right_half):
     result.extend(left_half if left_half else right_half)
     return result
 
-numbers = [6, 5, 3, 1, 8, 7, 2, 4]
+numbers = [3, 2, 8, 1, 5]
 print(merge_sort(numbers))
