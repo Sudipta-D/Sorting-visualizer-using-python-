@@ -192,4 +192,5 @@ def update(array, rects, operations):
 
 # Animate and Show Plot
 animation = anim.FuncAnimation(fig, update, fargs=(bar_rects, operations), frames=algorithm, interval=1, repeat=False)
+animation.save("sorting_visualization.gif", writer="pillow")
 plt.show()
