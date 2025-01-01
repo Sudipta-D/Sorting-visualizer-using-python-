@@ -1,30 +1,25 @@
-def partition(arr, low, high):
-	i = (low-1)		 # index of smaller element
-	pivot = arr[high]	 # pivot
+def partition(array, low, high):
+    i = low - 1 
+    pivot = array[high] 
 
-	for j in range(low, high):
+    for j in range(low, high):
+        if array[j] <= pivot:
+            i += 1
+            array[i], array[j] = array[j], array[i]
 
-		# If current element is smaller than or
-		# equal to pivot
-		if arr[j] <= pivot:
+    array[i + 1], array[high] = array[high], array[i + 1]
+    return i + 1
 
-			# increment index of smaller element
-			i = i+1
-			arr[i], arr[j] = arr[j], arr[i]
+def quick_sort(array, low, high):
+    if len(array) == 1:
+        return array
+    if low < high:
+        # Partition the array and get the pivot index
+        pivot_index = partition(array, low, high)
 
-	arr[i+1], arr[high] = arr[high], arr[i+1]
-	return (i+1)
+        quick_sort(array, low, pivot_index - 1)
+        quick_sort(array, pivot_index + 1, high)
 
-def quickSort(arr, low, high):
-	if len(arr) == 1:
-		return arr
-	if low < high:
-
-		pi = partition(arr, low, high)
-		quickSort(arr, low, pi-1)
-		quickSort(arr, pi+1, high)
-
-arr = [6,5,4,1,8,7,3,4]
-n = len(arr)
-quickSort(arr, 0, n-1)
-print(arr)
+numbers = [6, 5, 4, 1, 8, 7, 3, 4]
+quick_sort(numbers, 0, len(numbers) - 1)
+print(numbers)
