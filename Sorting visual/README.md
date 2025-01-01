@@ -1,4 +1,4 @@
-![sorting_visualization](https://github.com/user-attachments/assets/8c1e81bd-cd38-47b2-a899-cbde581da785)## Sorting Visualization 
+![image](https://github.com/user-attachments/assets/590c4650-cbe6-4e6a-9edd-90735cbe4acf)![sorting_visualization](https://github.com/user-attachments/assets/8c1e81bd-cd38-47b2-a899-cbde581da785)## Sorting Visualization 
 
 
 Sorting algorithms come in various forms, and understanding their functionality can be challenging without proper visualization.
@@ -69,19 +69,16 @@ Total operations = 460
 ![selection](https://g.top4top.io/p_1743jlpcp2.gif)
 
 ### Insertion Sort
-Total operations = 230
+Total operations = 431
 
-![Insertion](https://h.top4top.io/p_1743xxqrn3.gif)
+![Insertion](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnFrYzZuZWlrdDQ1d200dWhoamJydTBla2ZiOHVtMHBqNTBhZXk2NyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/8HP1qtOgIoto54pCd8/giphy.gif)
 
 ### Quick Sort
 Total operations = 131
 
 ![quick](https://i.top4top.io/p_1743rf4xy4.gif)
 
-another sorting algorithm visualization using pygame 
-
-![quick](https://i.top4top.io/p_1743ghv4d1.png)
 ### Merge Sort
-Total operations = 177
+Total operations = 255
 
-![merge](https://j.top4top.io/p_1743bj4815.gif)
+![merge](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2hoY2xqejF4bXA1em5vcDNlMXR6cGh1c28wbmRhMXE0aG9qeGVtbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l8GEkXg2eRUJcacfGD/giphy.webp)
