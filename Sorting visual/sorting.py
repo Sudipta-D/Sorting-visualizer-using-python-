@@ -191,14 +191,6 @@ def update(array, rects, operations):
     text.set_text(f"Operations: {operations[0]}")
 
 # Animate and Show Plot
-animation = anim.FuncAnimation(
-    fig,
-    update,
-    fargs=(bar_rects, operations),
-    frames=algorithm,
-    interval=1,
-    repeat=False,
-    cache_frame_data=False
-)
+animation = anim.FuncAnimation(fig, update, fargs=(bar_rects, operations), frames=algorithm, interval=1, repeat=False)
 animation.save("sorting_visualization.gif", writer="pillow")
 plt.show()
