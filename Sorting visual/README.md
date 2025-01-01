@@ -1,4 +1,4 @@
-## Sorting Visualization 
+![sorting_visualization](https://github.com/user-attachments/assets/8c1e81bd-cd38-47b2-a899-cbde581da785)## Sorting Visualization 
 
 
 Sorting algorithms come in various forms, and understanding their functionality can be challenging without proper visualization.
@@ -59,9 +59,9 @@ This repository serves as a demonstration of visualizing 8 different sorting alg
 #### All sortings are done on randomly generated arrays of size 40.
 
 ### Bubble Sort
-Total operations = 435 
+Total operations = 780 
 
-![bubble](https://f.top4top.io/p_1743devrw1.gif)
+![bubble](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMTdkeXQ5emZyZDJrMG5lMTIxZ3A2cTRtNzZnMXZrMGZ1YnJhOTJpOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/hIDzLYByAJYN3Dg91r/giphy.gif)
 
 ### Selection Sort
 Total operations = 460
