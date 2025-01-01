@@ -10,7 +10,7 @@ def selection_sort(input_list):
         input_list[i], input_list[min_index] = input_list[min_index], input_list[i]
 
 # Feel free to use any list of numbers
-numbers = [5, 2, 4, 6, 1, 3]
+numbers = [3, 2, 8, 1, 5]
 selection_sort(numbers)
 print(numbers)
 
