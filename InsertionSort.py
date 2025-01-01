@@ -8,6 +8,6 @@ def insertion_sort(input_list):
             j -= 1
         input_list[j + 1] = next_element
 
-numbers = [6, 5, 3, 1, 8, 7, 2, 4]
+numbers = [3, 2, 8, 1, 5]
 insertion_sort(numbers)
 print(numbers)
