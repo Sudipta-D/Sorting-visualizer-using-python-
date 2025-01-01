@@ -20,6 +20,6 @@ def quick_sort(array, low, high):
         quick_sort(array, low, pivot_index - 1)
         quick_sort(array, pivot_index + 1, high)
 
-numbers = [6, 5, 4, 1, 8, 7, 3, 4]
+numbers = [3, 2, 8, 1, 5]
 quick_sort(numbers, 0, len(numbers) - 1)
 print(numbers)
